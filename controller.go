@@ -1,21 +1,18 @@
 package nifty
 
 import (
+	"fmt"
 	"net/http"
 
 	"github.com/go-chi/chi/v5"
 )
 
-type Controller struct {
+type controller struct {
 	router chi.Router
 }
 
-func NewController() Controller {
-	return Controller{router: chi.NewRouter()}
-}
-
-func (c Controller) SetUrls(u []UrlMapping) {
-
+func createController(u UrlMapper) controller {
+	c := controller{router: chi.NewRouter()}
 	for _, m := range u {
 		switch m.Method {
 		case Post:
@@ -38,8 +35,14 @@ func (c Controller) SetUrls(u []UrlMapping) {
 			fallthrough
 		default:
 			c.router.With(m.Middleware...).Get(m.Url, http.HandlerFunc(m.View))
-
 		}
-
 	}
+
+	return c
+}
+
+func (c controller) Listen(port uint) {
+	portString := fmt.Sprintf(":%d", port)
+
+	http.ListenAndServe(portString, c.router)
 }

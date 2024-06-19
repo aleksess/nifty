@@ -20,3 +20,5 @@ type UrlMapping struct {
 	View       View
 	Middleware []func(http.Handler) http.Handler
 }
+
+type UrlMapper []UrlMapping
