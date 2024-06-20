@@ -44,5 +44,7 @@ func createController(u UrlMapper) controller {
 func (c controller) Listen(port uint) {
 	portString := fmt.Sprintf(":%d", port)
 
+	fmt.Printf("App listening on %s", portString)
 	http.ListenAndServe(portString, c.router)
+	fmt.Printf("App listening on %s", portString)
 }
