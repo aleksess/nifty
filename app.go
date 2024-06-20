@@ -10,6 +10,7 @@ type App struct {
 func CreateApp(cfg Config, urls UrlMapper) App {
 	var app App
 	app.ctrl = createController(urls)
+	app.Cfg = cfg
 	return app
 }
 
