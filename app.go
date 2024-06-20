@@ -1,5 +1,7 @@
 package nifty
 
+import "fmt"
+
 type App struct {
 	ctrl controller
 	Cfg  Config
@@ -8,10 +10,10 @@ type App struct {
 func CreateApp(cfg Config, urls UrlMapper) App {
 	var app App
 	app.ctrl = createController(urls)
-
 	return app
 }
 
 func (a App) Start() {
+	fmt.Println("app started listening")
 	a.ctrl.Listen(a.Cfg.Port)
 }
