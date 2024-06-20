@@ -8,5 +8,5 @@ var Config nifty.Config = nifty.DefaultConfig
 //	Port:3000
 //	DatabaseUrl: "./db.db"
 //	DatabaseEngine "sqlite"
-//	SessionSecret  "secret"
+//	AuthSecret  "secret"
 //}
