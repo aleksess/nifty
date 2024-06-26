@@ -1,9 +1,9 @@
 package main
 
-import "github.com/aleksess/nifty/bootstrap"
+import "github.com/aleksess/nifty/bootstrap/app"
 
 func main() {
-	app := bootstrap.App
+	app := app.App
 
   app.Start()
 }
