@@ -5,4 +5,4 @@ import (
 	"github.com/aleksess/nifty/bootstrap/config"
 )
 
-var App = nifty.CreateApp(config.Config, Urls)
+var App = nifty.CreateApp(config.Config, config.Urls)
